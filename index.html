@@ -9,9 +9,15 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <p>Hover your mouse over the pad to start drawing!</p>
+    <p id="p1">Choose a color and hover your mouse over the pad to start drawing!</p>
+    <p id="p2">(Refresh to start over.)</p>
     <div id="dimensions-display"></div>
-    <button>customize number of pixels</button>
+    <div id="color-choices">
+        <button id="solid-btn" class="color-btn">Solid Black</button>
+        <button id="grey-scale-btn" class="color-btn">Grey Scale</button>
+        <button id="multicolor-btn" class="color-btn">Multicolored</button>
+    </div>
+    <button id="pixels-btn">customize number of pixels</button>
     <div id="container"></div>
     
 
