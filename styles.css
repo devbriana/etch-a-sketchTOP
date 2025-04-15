@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(23, 25, 25);
+    color: rgb(241, 241, 253);
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+p {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+#dimensions-display {
+    font-size: 16px;
+}
+
+button {
+    padding: 5px;
+    margin: 12px;
+    background-color: rgb(108, 121, 219);
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 600px;
+    border: solid 30px rgb(227, 110, 110);
+    border-radius: 30px;
+}
+
+.new-div {
+    box-sizing: border-box;
+    border: solid 0.5px lightgray;
+    background-color: white;
+
+}
