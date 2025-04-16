@@ -4,7 +4,16 @@ var dimensionsDisplay = document.getElementById('dimensions-display')
 var pixelsBtn = document.getElementById('pixels-btn');
 var solidBtn = document.getElementById('solid-btn');
 var greyScaleBtn = document.getElementById('grey-scale-btn')
+var redBtn = document.getElementById('red-btn');
+var orangeBtn = document.getElementById('orange-btn');
+var yellowBtn = document.getElementById('yellow-btn');
+var greenBtn = document.getElementById('green-btn');
+var blueBtn = document.getElementById('blue-btn');
+var purpleBtn = document.getElementById('purple-btn');
 var multicolorBtn = document.getElementById('multicolor-btn');
+var eraserBtn = document.getElementById('eraser-btn');
+var buttons = document.querySelectorAll('.color-btn');
+
 
 var currentMode;
 
@@ -77,14 +86,18 @@ function createDivs(divCount) {
         // set up hover event listener
         solidBtn.addEventListener("click", changeDivColorSolid);
         greyScaleBtn.addEventListener("click", changeDivColorGrey);
+        redBtn.addEventListener("click", changeDivColorRed);
+        orangeBtn.addEventListener("click", changeDivColorOrange);
+        yellowBtn.addEventListener("click", changeDivColorYellow);
+        greenBtn.addEventListener("click", changeDivColorGreen);
+        blueBtn.addEventListener("click", changeDivColorBlue);
+        purpleBtn.addEventListener("click", changeDivColorPurple);
         multicolorBtn.addEventListener("click", changeDivColorMulti);
+        eraserBtn.addEventListener("click", changeDivColorErase);
 
-        //solid divs
+       // changeDivColor FUNCTIONS
+        //solid black divs
         function changeDivColorSolid() {
-            /*allSquares.forEach((square) => {
-                newDiv.style.backgroundColor = "white";
-                newDiv.style.opacity = 1;
-            })*/
             currentMode = "solid";
             console.log("solid button clicked");
             console.log(currentMode);
@@ -94,57 +107,175 @@ function createDivs(divCount) {
 
         // grey divs
         function changeDivColorGrey() {
-            allSquares.forEach((square) => {
-                //newDiv.style.backgroundColor = "white";
-                //newDiv.style.opacity = 0;
-            })
             currentMode = "grey";
-
             console.log("grey button clicked");
             console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
 
         }
       
+        // red divs
+        function changeDivColorRed() {
+            currentMode = "red";
+            console.log("red button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
+
+        // orange divs
+        function changeDivColorOrange() {
+            currentMode = "orange";
+            console.log("orange button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
+
+        // yellow divs
+        function changeDivColorYellow() {
+            currentMode = "yellow";
+            console.log("yellow button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
+
+        // green divs
+        function changeDivColorGreen() {
+            currentMode = "green";
+            console.log("green button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
+
+        // blue divs
+        function changeDivColorBlue() {
+            currentMode = "blue";
+            console.log("blue button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
+
+        // purple divs
+        function changeDivColorPurple() {
+            currentMode = "purple";
+            console.log("purple button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+
+        }
 
         // multicolored divs
         function changeDivColorMulti() {
-            /*allSquares.forEach((square) => {
-                newDiv.style.backgroundColor = "white";
-                newDiv.style.opacity = 1;
-            })*/
             currentMode = "multi";
             console.log("color button clicked");
             console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
         }
+
+        // erase divs
+        function changeDivColorErase() {
+            currentMode = "erase";
+            console.log("erase button clicked");
+            console.log(currentMode);
+            newDiv.addEventListener("mouseover", updateSquares);
+        }
        
         function updateSquares() {
-            if (currentMode === "solid") {
-                newDiv.style.opacity = 1;
-                newDiv.style.backgroundColor = "black";
-            }
-            else if (currentMode === "grey") {
-                let currentOpacity = parseFloat(newDiv.style.opacity) || 0; // start at 0 if not set
-                newDiv.style.backgroundColor = "rgba(76, 77, 79)";
-            
-                if (currentOpacity < 1) {
-                    currentOpacity += 0.2;
-                }
-                newDiv.style.opacity = currentOpacity;
-            } else if (currentMode === "multi") {
-                newDiv.style.opacity = 1;
-                newDiv.style.backgroundColor = "pink";
+            switch (currentMode) {
+                case "solid":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "black";
+                    break;
+        
+                case "grey":
+                    let currentOpacity = 0.2; // always start fresh at 0.2
+                    newDiv.style.backgroundColor = "rgb(76, 77, 79)";
+        
+                    if (parseFloat(newDiv.style.opacity) < 1) {  //if on black square this runs false bc already 1, skips outside of condition 
+                        currentOpacity = parseFloat(newDiv.style.opacity) + 0.2;
+                    }
+                    newDiv.style.opacity = currentOpacity; //sets opacity to 0.2 
+                    break;
 
-            }
-          
+                case "red":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(199, 38, 38)";
+                    break;
 
-        }
+                case "orange":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(255, 157, 0)";
+                    break;
+
+                case "yellow":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(242, 242, 80)";
+                    break;
+
+                case "green":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(37, 156, 37)";
+                    break;
+
+                case "blue":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(0, 106, 255)";
+                    break;
+
+                case "purple":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "rgb(175, 10, 175)";
+                    break;
+
+                case "multi":
+                    newDiv.style.opacity = 1;
+                    random = Math.floor(Math.random() * 100) + 1;
+                    if (random < 10) { 
+                        newDiv.style.backgroundColor = "rgb(245, 184, 196)";
+                    } else if (random > 10 && random < 20) {
+                        newDiv.style.backgroundColor = "rgb(245, 184, 221)"
+                    } else if (random > 20 && random < 30) {
+                        newDiv.style.backgroundColor = "rgb(236, 184, 245)"
+                    } else if (random > 30 && random < 40) {
+                        newDiv.style.backgroundColor = "rgb(192, 184, 245)"
+                    } else if (random > 40 && random < 50) {
+                        newDiv.style.backgroundColor = "rgb(184, 209, 245)"
+                    } else if (random > 50 && random < 60) {
+                        newDiv.style.backgroundColor = "rgb(201, 245, 184)"
+                    } else if (random > 70 && random < 80) {
+                        newDiv.style.backgroundColor = "rgb(239, 245, 184)"
+                    } else if (random > 80 && random < 90) {
+                        newDiv.style.backgroundColor = "rgb(245, 220, 184)"
+                    } else if (random > 90) {
+                        newDiv.style.backgroundColor = "rgb(245, 199, 184)"
+                    }
+                    break;
+                
+                case "erase":
+                    newDiv.style.opacity = 1;
+                    newDiv.style.backgroundColor = "white";
+                    break;
+            }
+        } 
+
+        
 
         i++;
-        }
+    }
 
    
 }
 
 createDivs(divCount);
+
+// make buttons look clicked 
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('selected')); // remove from all
+      button.classList.add('selected'); // add to clicked
+    });
+  });
