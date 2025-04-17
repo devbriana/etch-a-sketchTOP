@@ -17,7 +17,6 @@ var buttons = document.querySelectorAll('.color-btn');
 
 var currentMode;
 
-
 var dimensions = 16;
 var size;
 var divCount = 0;
@@ -62,7 +61,6 @@ function howManyDivs(dimensions) {
     return divCount;
 }
 howManyDivs(dimensions);
-console.log("divCount " + divCount);
  
 //adjust the size of each square based on the dimensions the user inputs
 function divsSize(divCount) {
@@ -70,7 +68,6 @@ function divsSize(divCount) {
     return size;
 }
 divsSize(divCount);
-console.log("size of each div: " + size);
 
 //create the squares according to the size calculated in the function above
 function createDivs(divCount) {
@@ -82,7 +79,6 @@ function createDivs(divCount) {
         divContainer.appendChild(newDiv);
         newDiv.style.height = size;
         newDiv.style.width = size;
-        console.log(i);
         // set up hover event listener
         solidBtn.addEventListener("click", changeDivColorSolid);
         greyScaleBtn.addEventListener("click", changeDivColorGrey);
@@ -99,91 +95,64 @@ function createDivs(divCount) {
         //solid black divs
         function changeDivColorSolid() {
             currentMode = "solid";
-            console.log("solid button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
         }
         
-
         // grey divs
         function changeDivColorGrey() {
             currentMode = "grey";
-            console.log("grey button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
       
         // red divs
         function changeDivColorRed() {
             currentMode = "red";
-            console.log("red button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // orange divs
         function changeDivColorOrange() {
             currentMode = "orange";
-            console.log("orange button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // yellow divs
         function changeDivColorYellow() {
             currentMode = "yellow";
-            console.log("yellow button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // green divs
         function changeDivColorGreen() {
             currentMode = "green";
-            console.log("green button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // blue divs
         function changeDivColorBlue() {
             currentMode = "blue";
-            console.log("blue button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // purple divs
         function changeDivColorPurple() {
             currentMode = "purple";
-            console.log("purple button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
-
         }
 
         // multicolored divs
         function changeDivColorMulti() {
             currentMode = "multi";
-            console.log("color button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
         }
 
         // erase divs
         function changeDivColorErase() {
             currentMode = "erase";
-            console.log("erase button clicked");
-            console.log(currentMode);
             newDiv.addEventListener("mouseover", updateSquares);
         }
        
+        // update div colors on mouseover based on currentMode
         function updateSquares() {
             switch (currentMode) {
                 case "solid":
@@ -261,15 +230,9 @@ function createDivs(divCount) {
                     break;
             }
         } 
-
-        
-
         i++;
     }
-
-   
 }
-
 createDivs(divCount);
 
 // make buttons look clicked 
